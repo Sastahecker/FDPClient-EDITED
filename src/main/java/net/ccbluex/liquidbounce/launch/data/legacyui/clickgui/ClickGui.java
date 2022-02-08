@@ -102,8 +102,6 @@ public class ClickGui extends GuiScreen {
                     return;
             if (wheel < 0) {
                 scroll -= 15;
-//                if(scroll < 0)
-//                    scroll = 0;
             } else if (wheel > 0) {
                 scroll += 15;
                 if (scroll > 0)
