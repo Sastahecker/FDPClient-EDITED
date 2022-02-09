@@ -37,9 +37,15 @@ class Speed : Module() {
     }
 
     private val noWater = BoolValue("NoWater", true)
+    private val lagBackCheck = BoolValue("LagBackCheck", true)
 
     @EventTarget
     fun onUpdate(event: UpdateEvent) {
+        if (lagBackCheck.get() && autoDisable != EnumAutoDisableType.FLAG) {
+            autoDisable = EnumAutoDisableType.FLAG
+        } else if (autoDisable != EnumAutoDisableType.NONE) {
+            autoDisable = EnumAutoDisableType.NONE
+        }
         if (mc.thePlayer.isSneaking || (mc.thePlayer.isInWater && noWater.get())) return
         if (MovementUtils.isMoving()) mc.thePlayer.isSprinting = true
         mode.onUpdate()
