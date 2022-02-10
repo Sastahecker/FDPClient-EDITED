@@ -449,3 +449,5 @@ module.Crosshair.description=显示一个更好的准星
 module.Damage.name=自伤
 module.Damage.description=允许你对自己造成伤害
 
+module.TPBed.name=传送床
+module.TPBed.description=自动传送到床附近

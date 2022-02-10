@@ -90,7 +90,7 @@ class Notification(
     val title: String,
     val content: String,
     val type: NotifyType,
-    val time: Int = 1500,
+    val time: Int = 2000,
     val animeTime: Int = 500
 ) {
     var width = 100
