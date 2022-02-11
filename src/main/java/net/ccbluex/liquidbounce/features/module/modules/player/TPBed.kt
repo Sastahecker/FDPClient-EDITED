@@ -103,14 +103,16 @@ class TPBed : Module() {
                 if (posList.size > 1) {
                     posList.sortWith(compareBy { mc.thePlayer.getDistanceSq(it) })
 
-                    if (own == null) {
-                        own = posList[0]
-                    }
-                    if (own1 == null)
-                        own1 = posList[1]
+//                    if (own == null) {
+//                        own = posList[0]
+//                    }
+//                    if (own1 == null)
+//                        own1 = posList[1]
                 }
-                posList.remove(own)
-                posList.remove(own1)
+//                posList.remove(own)
+//                posList.remove(own1)
+                posList.remove(posList[0])
+                posList.remove(posList[0])
 
                 ClientUtils.logInfo("Self Bed:${own!!.x} ${own!!.y} ${own!!.z}")
                 LiquidBounce.hud.notifications.add(
@@ -172,8 +174,8 @@ class TPBed : Module() {
             x.toDouble(),
             y.toDouble(),
             z.toDouble(),
-            moveDistanceValue.get().toDouble()
-//            max(min(mc.thePlayer.getDistance(x.toDouble(), y.toDouble(), z.toDouble()) / 30, 12.0), 6.0)
+//            moveDistanceValue.get().toDouble()
+            max(min(mc.thePlayer.getDistance(x.toDouble(), y.toDouble(), z.toDouble()) / 30, 12.0), 6.0)
         )
 //        teleporting = true
 

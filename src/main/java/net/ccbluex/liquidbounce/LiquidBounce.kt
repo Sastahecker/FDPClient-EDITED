@@ -46,8 +46,10 @@ object LiquidBounce {
     // Client information
     const val CLIENT_NAME = "FDPClient"
     const val COLORED_NAME = "§c§lFDP§6§lClient"
-    const val CLIENT_REAL_VERSION = "v2.1.2"
+    const val CLIENT_REAL_VERSION = "v2.1.3"
     const val CLIENT_CREATOR = "CCBlueX & UnlegitMC"
+    const val CLIENT_SPONSOR = "SuperSkidder"
+
     const val CLIENT_WEBSITE = "GetFDP.Today"
     const val CLIENT_STORAGE = "https://res.getfdp.today/"
     const val MINECRAFT_VERSION = "1.8.9"
