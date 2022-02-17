@@ -6,6 +6,7 @@ import net.ccbluex.liquidbounce.features.module.EnumAutoDisableType
 import net.ccbluex.liquidbounce.features.module.Module
 import net.ccbluex.liquidbounce.features.module.ModuleCategory
 import net.ccbluex.liquidbounce.features.module.ModuleInfo
+import net.ccbluex.liquidbounce.features.module.modules.exploit.Disabler
 import net.ccbluex.liquidbounce.features.module.modules.movement.flys.FlyMode
 import net.ccbluex.liquidbounce.utils.ClassUtils
 import net.ccbluex.liquidbounce.utils.render.RenderUtils
@@ -60,6 +61,9 @@ class Fly : Module() {
                 mc.thePlayer.handleStatusUpdate(2.toByte())
             }
         }
+//        if (mc.currentServerData.serverIP.contains("blocksmc.com") && LiquidBounce.moduleManager[Disabler::class.java]?.state == false) {
+//            state = false
+//        }
 
         launchX = mc.thePlayer.posX
         launchY = mc.thePlayer.posY

@@ -33,6 +33,7 @@ import net.minecraft.entity.EntityLivingBase
 import net.minecraft.init.Blocks
 import net.minecraft.network.play.client.C03PacketPlayer
 import net.minecraft.network.play.client.C0APacketAnimation
+import net.minecraft.network.play.server.S01PacketJoinGame
 import net.minecraft.network.play.server.S02PacketChat
 import net.minecraft.util.BlockPos
 import tv.twitch.chat.ChatEvent
@@ -57,13 +58,11 @@ class TPBed : Module() {
 
     @EventTarget
     fun onChat(event: PacketEvent) {
-        if (event.packet is C03PacketPlayer.C04PacketPlayerPosition && teleporting) {
-            val packet = event.packet;
-//            if (packet.chatComponent.formattedText.contains("bed") && packet.chatComponent.formattedText.contains("own")) {
-//
-//            }
-
-            event.cancelEvent()
+        if (event.packet is S01PacketJoinGame) {
+            ClientUtils.logInfo("[TPBed] reset")
+            LiquidBounce.hud.notifications.add(Notification("TPBed", "TPBed Reset", NotifyType.SUCCESS))
+            own = null
+            own1 = null
         }
     }
 

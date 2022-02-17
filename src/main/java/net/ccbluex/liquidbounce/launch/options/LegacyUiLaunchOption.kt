@@ -33,14 +33,14 @@ object LegacyUiLaunchOption : LaunchOption() {
 
             val latestVersion = jsonObj.get("tag_name").asString
 
-            if (LiquidBounce.CLIENT_VERSION == LiquidBounce.CLIENT_REAL_VERSION && !latestVersion.equals(LiquidBounce.CLIENT_VERSION)) {
-                val buttons = arrayOf(LanguageManager.get("ui.update.download"), LanguageManager.get("ui.update.dismiss"))
-                val selection = JOptionPane.showOptionDialog(null, LanguageManager.getAndFormat("ui.update.released", latestVersion), "Alert",
-                    JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[0])
-                if (selection == 0) {
-                    MiscUtils.showURL("https://${LiquidBounce.CLIENT_WEBSITE}")
-                }
-            }
+//            if (LiquidBounce.CLIENT_VERSION == LiquidBounce.CLIENT_REAL_VERSION && !latestVersion.equals(LiquidBounce.CLIENT_VERSION)) {
+//                val buttons = arrayOf(LanguageManager.get("ui.update.download"), LanguageManager.get("ui.update.dismiss"))
+//                val selection = JOptionPane.showOptionDialog(null, LanguageManager.getAndFormat("ui.update.released", latestVersion), "Alert",
+//                    JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[0])
+//                if (selection == 0) {
+//                    MiscUtils.showURL("https://${LiquidBounce.CLIENT_WEBSITE}")
+//                }
+//            }
         }.start()
 
         LiquidBounce.mainMenu = GuiMainMenu()

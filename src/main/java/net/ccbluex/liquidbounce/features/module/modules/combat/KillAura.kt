@@ -31,6 +31,7 @@ import net.minecraft.client.gui.inventory.GuiInventory
 import net.minecraft.enchantment.EnchantmentHelper
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityLivingBase
+import net.minecraft.entity.effect.EntityLightningBolt
 import net.minecraft.entity.item.EntityArmorStand
 import net.minecraft.item.ItemAxe
 import net.minecraft.item.ItemPickaxe
@@ -131,6 +132,8 @@ class KillAura : Module() {
     ).displayable { autoBlockValue.equals("Range") }
     private val interactAutoBlockValue =
         BoolValue("InteractAutoBlock", true).displayable { autoBlockValue.equals("Range") }
+    private val lightning =
+        BoolValue("Lightning", true)
     private val blockRate = IntegerValue("BlockRate", 100, 1, 100).displayable { autoBlockValue.equals("Range") }
 
     // Raycast
@@ -405,7 +408,9 @@ class KillAura : Module() {
 
         // Update target
         updateTarget()
-
+        if(target != null && lightning.get()) {
+            mc.theWorld.spawnEntityInWorld(EntityLightningBolt(mc.theWorld, target!!.posX, target!!.posY, target!!.posZ))
+        }
         if (discoveredTargets.isEmpty()) {
             stopBlocking()
             return
